@@ -7,7 +7,7 @@
 #	University of California, Davis	#
 #	Department of Plant Sciences	#
 #####################################
-ver1
+ver1.0
 
 ###############################
 #	OVERVIEW OF PIPELINE      #

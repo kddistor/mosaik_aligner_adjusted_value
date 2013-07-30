@@ -1,8 +1,25 @@
 #!/usr/bin/bash
-#Parsed Ace file compiler
+
+#########################################
+#  Parsed Ace File Splitter			#
+#	by Kevin Distor						#
+#	University of California, Davis		#
+#################################################################################################################################
+#Step 3 - Split the original parsed sequence file into eights																	#
+#																																#
+#	The generated csv file is then split into eight files. Each file will have TE names at the top and eight of the 			#
+#	"parsed_ace_final.csv" file's read values. The ouput of this part is labled "$FILE.1st.out" to "$FILE.8th.out" where		#
+#	$FILE is the name of the original input sequence at the beginning of the pipeline.											#
+#																																#
+#################################################################################################################################
+#grab .csv parsed ace file
 for FILE in *.csv
 do
-#split file into eights
+#Split parsed_ace_file.csv file into eights. Rationale: Server load can't parse a full file.
+#Output by default is parsed_ace_final.csv.1st.out to parsed_ace_final.csv.8th.out
+#The first file will have an eighth - 1 line of the original file.
+#The second to seventh file will have an eighth of the original file.
+#The eighth file will have an eighth of the original file plus the remainder of lines.
 file_line_count=$(wc -l < $FILE)
 line_count=$(($file_line_count-1))
 split_line_count=$(($line_count/8))

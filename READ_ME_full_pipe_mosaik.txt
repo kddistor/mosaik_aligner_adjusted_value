@@ -1,5 +1,5 @@
 #####################################
-#  READ-ME                      	#
+#	READ-ME                      	#
 #	FULL MOSAIK PIPELINE         	#
 #	FOR ADJUSTED ALIGNER VALUE		#
 #								   	#
@@ -7,7 +7,6 @@
 #	University of California, Davis	#
 #	Department of Plant Sciences	#
 #####################################
-ver1.0
 
 ###############################
 #	OVERVIEW OF PIPELINE      #
@@ -22,7 +21,7 @@ ver1.0
 	Transposable Element(TE) file(in fasta format)and counts once if a TE appears in an ace file to show the number 
 	of times a TE uniquely maps to a SimSeqRead. It produces a grid with the reads that the script obtained from 
 	the ace files in the first column and the TEs that that script obtained from the TE reference file in the first row. 
-	Reads that aligned to a TE will have a 1 marked in the crossposition. The output is labled "parsed_ace_final.csv" by 
+	Reads that aligned to a TE will have a 1 marked in the crossposition. The output is labeled "parsed_ace_final.csv" by 
 	default.
 6)The generated csv file is then split into eight files. Each file will have TE names at the top and eight of the 
 	"parsed_ace_final.csv" file's read values. The ouput of this part is labled "$FILE.1st.out" to "$FILE.8th.out" where
@@ -52,6 +51,7 @@ In ~/mosaik/bin
 	-split_parsed_file_adjuster.sh
 	-file_concatenator.sh
 	-sequences to be alinged (FASTQ) format
+Build reference in ~/mosaik/bin
 	-reference in FASTA format (example: UTE_tags.fasta)
 	-built reference sequences(example: UTE_tags.fasta) to align to
 		To build reference sequence run ./MosaikBuild -fr UTE_tags.fasta  -oa UTE_tags.dat 
@@ -135,7 +135,7 @@ usage: ./MosaikSort -in $FILE.align -out $FILE.sorted -nu
 
 .align converted to .sort
 
-##	MosaikAssemble					##
+##	MosaikAssembler					##
 
 usage: ./MosaikAssembler -in $FILE.sorted -ia UTE_tags.dat -out $FILE.UTE_tags.assembled
 
@@ -229,7 +229,7 @@ HWI-ST611_0210:8:1101:14158:138911,,,,1,,,
 
 .ace converted to parsed_ace_final.csv
 
-##	parsed_file_splitte_bash.sh			##
+##	parsed_file_splitter_bash.sh			##
 	
 usage: sh parsed_file_splitter_bash.sh
 

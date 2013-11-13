@@ -86,7 +86,7 @@ INVOKE MASTER SCRIPT
 
 usage: sh full_pipe_mosaik.sh
 
-#	For every FASTQ file in the folder run the MOSAIK to assembly	#
+For every FASTQ file in the folder run the MOSAIK to assembly	
 
 for FILE in *.fastq
 do

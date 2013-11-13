@@ -16,24 +16,31 @@ Department of Plant Sciences
 
 
 1)MosaikBuild converts input sequence to be aligned into Mosaik’s native read format(.dat).
+
 2)MosaikAligner pairwise aligns each read to a specified series of reference sequences(.align).
+
 3)MosaikSort resolves paired-end reads and sorts the alignments by the reference sequence coordinates(.sort).
+
 4)Finally, MosaikAssembler parses the sorted alignment archive and produces a multiple sequence alignment
 	which is then saved into an assembly file format(.ace).
+
 5)The assembly file format is then run through a perl script one_hash_ace_parser.pl which takes in a reference 
 	Transposable Element(TE) file(in fasta format)and counts once if a TE appears in an ace file to show the number 
 	of times a TE uniquely maps to a SimSeqRead. It produces a grid with the reads that the script obtained from 
 	the ace files in the first column and the TEs that that script obtained from the TE reference file in the first row. 
 	Reads that aligned to a TE will have a 1 marked in the crossposition. The output is labeled "parsed_ace_final.csv" by 
 	default.
+
 6)The generated csv file is then split into eight files. Each file will have TE names at the top and eight of the 
 	"parsed_ace_final.csv" file's read values. The ouput of this part is labled "$FILE.1st.out" to "$FILE.8th.out" where
 	$FILE is the name of the original input sequence at the beginning of the pipeline.
+
 7)The split files are then run through an R script in the form of a shell script called "split_parsed_file_adjuster.sh"
 	which takes alignment values and adjusts it based on how many reads were aligned. For example, if a read had a total 
 	3 alignments to transposable elements/repeats, all alignment values for that read would be adjusted to 1/3.The defualt 
 	output for this step is "$dir/$i.UTE_tags.final" where $dir is the name of the output file from step 6 and $i is the 
 	split file number.
+
 8)The final step of this pipeline involves combining all 8 adjusted files and adding the TE counts. This is done with R script
 	in the form of a shell script called "file_concatenator.sh". Once the TE counts are added, the final output is one line
 	of TEs and their adjusted counts. The default output for this part of the pipeline is labled "$dir.adujsted_alignmentscore.txt"

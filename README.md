@@ -157,22 +157,22 @@ usage: ./MosaikAssembler -in $FILE.sorted -ia UTE_tags.dat -out $FILE.UTE_tags.a
 	
 .sort converted to .ace
 
-#	Make directory with name of sequence used as $file	#
+Make directory with name of sequence used as $file	
 mkdir ~/mosaik/assembled_$FILE.UTE_tags
 
-#	Move assembled ace files to sequence directory		#
+Move assembled ace files to sequence directory		
 for file in *.ace
 do
 mv $file ~/mosaik/assembled_$FILE.UTE_tags
 
-#	Copy all scripts to parse alignment data into sequence directory	#
+Copy all scripts to parse alignment data into sequence directory	
 cp one_hash_ace_parser.pl ~/mosaik/assembled_$FILE.UTE_tags
 cp UTE_tags.fasta ~/mosaik/assembled_$FILE.UTE_tags
 cp parsed_file_splitter.sh ~/mosaik/assembled_$FILE.UTE_tags
 cp R_bash_here_file.sh ~/mosaik/assembled_$FILE.UTE_tags
 mv $file ~/mosaik/assembled_$FILE.UTE_tags
 
-#	For every folder created invoke the copied scripts	#
+For every folder created invoke the copied scripts
 for i in /home/kvdistor/mosaik/assembled_*;
 do (cd "$i" && perl one_hash_ace_parser.pl && sh parsed_file_splitter_bash.sh && sh split_parsed_file_adjuster.sh && sh file_concatenator.sh);
 done

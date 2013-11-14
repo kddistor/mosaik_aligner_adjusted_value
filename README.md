@@ -277,11 +277,11 @@ usage: sh file_concatenator.sh
 	
 $dir.1st.out.UTE_tags.final	...	$dir.8th.out.UTE_tags.final converted to $dir.adujsted_alignmentscore.txt
 
-#Move adjusted files from directory to ~/mosaik/bin folder
+Move adjusted files from directory to ~/mosaik/bin folder
 tail -1 final.csv > $dir.adujsted_alignmentscore.txt
 cp $dir.adujsted_alignmentscore.txt ~/mosaik/bin
 
-#	Remove all unneccesary/used Mosaik files		#
+Remove all unneccesary/used Mosaik files		
 for FILE in *.sorted
 do
 rm $FILE

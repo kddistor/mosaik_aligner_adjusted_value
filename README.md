@@ -3,7 +3,7 @@ mosaik_aligner_adjusted_value
 This script gets the Relative abundance of TEs for each organism sequence aligned to a reference using Mosaik aligner.
 
 
-READ-ME                      	
+[READ-ME](https://github.com/kddistor/mosaik_aligner_adjusted_value/blob/master/READ_ME_full_pipe_mosaik.txt)                    	
 FULL MOSAIK PIPELINE         	
 FOR ADJUSTED ALIGNER VALUE		
 by Kevin Distor   				
